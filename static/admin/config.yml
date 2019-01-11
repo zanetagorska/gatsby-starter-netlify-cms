@@ -18,12 +18,12 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
-  - name: "meetings"
-    label: "Meetings"
-    folder: "/src/pages/meetings"
+  - name: "meeting"
+    label: "Meeting"
+    folder: "/src/pages/meeting"
     create: true
     fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "meetings"}
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "meeting"}
       - {label: "Title", name: "title", default: "title"}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "pages"

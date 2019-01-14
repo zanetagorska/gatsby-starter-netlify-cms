@@ -4,14 +4,19 @@ import Layout from '../../components/Layout';
 import Card from './Card';
 
 const MeetingPage = (props) => {
-	console.log(props);
+	const { edges: meetings } = props.data.allMarkdownRemark;
+	console.log(meetings);
 	return (
 		<Layout>
 			<section className="section">
 				<div className="container">
 					<div className="content">
 						<h1 className="has-text-weight-bold is-size-2">Latest meetings</h1>
-						{/* <div>{meetings.map((meeting) => <Card key={meeting.id} />)}</div> */}
+						<div>
+							{meetings.map((meeting) => (
+								<Card key={meeting.node.id} title={meeting.node.frontmatter.title} />
+							))}
+						</div>
 					</div>
 				</div>
 			</section>
@@ -23,7 +28,7 @@ export default MeetingPage;
 
 export const pageQuery = graphql`
 	query MeetupQuery {
-		allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "meetings" } } }) {
+		allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "meeting" } } }) {
 			edges {
 				node {
 					id

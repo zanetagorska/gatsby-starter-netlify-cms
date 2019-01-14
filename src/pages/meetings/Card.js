@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = () => {
+const Card = ({ title }) => {
 	return (
 		<div className="box">
 			<article className="media">
@@ -12,7 +12,7 @@ const Card = () => {
 				<div className="media-content">
 					<div className="content">
 						<p>
-							<strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+							<strong>{title}</strong>
 							<br />
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa
 							fringilla egestas. Nullam condimentum luctus turpis.

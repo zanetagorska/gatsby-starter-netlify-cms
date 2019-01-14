@@ -24,10 +24,14 @@ export const MeetingTemplate = ({ title, content, contentComponent }) => {
 };
 
 const MeetingPage = ({ data }) => {
-	const { markdownRemark: post } = data;
-	console.log(data);
+	const { markdownRemark: meeting } = data;
 
-	return <Layout>Meeting Page</Layout>;
+	return (
+		<Layout>
+			<h2>{meeting.frontmatter.title}</h2>
+			<div dangerouslySetInnerHTML={{ __html: meeting.html }} />
+		</Layout>
+	);
 };
 
 MeetingPage.propTypes = {

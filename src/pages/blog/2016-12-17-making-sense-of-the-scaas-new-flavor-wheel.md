@@ -1,5 +1,6 @@
 ---
 templateKey: blog-post
+image: /img/coffee.png
 title: 'Making sense of the SCAA’s new Flavor Wheel [edited]'
 date: 2016-12-17T15:04:10.000Z
 description: >-
@@ -11,7 +12,7 @@ tags:
 ---
 ![flavor wheel](/img/flavor_wheel.jpg)
 
-<iframe width="420" height="315" src="https://www.youtube.com/embed/BMUiFMZr7vk" />
+<iframe width="420" height="315" src="https://www.youtube.com/embed/BMUiFMZr7vk"></iframe>
 
 The SCAA updated the wheel to reflect the finer nuances needed to describe flavors more precisely. The new descriptions are more detailed and hence allow cuppers to distinguish between more flavors.
 

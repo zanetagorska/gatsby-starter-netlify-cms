@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 
-export const MeetingTemplate = ({ title, content, contentComponent }) => {
+export const MeetingTemplate = ({ content, contentComponent, title }) => {
 	const PageContent = contentComponent || Content;
 
 	return (
@@ -13,8 +13,8 @@ export const MeetingTemplate = ({ title, content, contentComponent }) => {
 				<div className="columns">
 					<div className="column is-10 is-offset-1">
 						<div className="section">
-							<h2 className="title is-size-3 has-text-weight-bold is-bold-light">{title}</h2>
-							<PageContent className="content" content={content} />
+							<h1 className="title is-size-2 has-text-weight-bold is-bold-light">{title}</h1>
+							<PageContent content={content} />
 						</div>
 					</div>
 				</div>
@@ -25,11 +25,9 @@ export const MeetingTemplate = ({ title, content, contentComponent }) => {
 
 const MeetingPage = ({ data }) => {
 	const { markdownRemark: meeting } = data;
-
 	return (
 		<Layout>
-			<h2>{meeting.frontmatter.title}</h2>
-			<div dangerouslySetInnerHTML={{ __html: meeting.html }} />
+			<MeetingTemplate content={meeting.html} contentComponent={HTMLContent} title={meeting.frontmatter.title} />
 		</Layout>
 	);
 };

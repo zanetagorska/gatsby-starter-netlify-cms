@@ -48,6 +48,7 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data }) => {
 	const { markdownRemark: post } = data;
+	console.log(post);
 
 	return (
 		<Layout>
@@ -63,7 +64,6 @@ const BlogPost = ({ data }) => {
 				}
 				tags={post.frontmatter.tags}
 				title={post.frontmatter.title}
-				image={post.frontmatter.image}
 			/>
 		</Layout>
 	);
@@ -87,6 +87,13 @@ export const pageQuery = graphql`
 				title
 				description
 				tags
+				image {
+					childImageSharp {
+						fluid(maxWidth: 2048, quality: 100) {
+							...GatsbyImageSharpFluid
+						}
+					}
+				}
 			}
 		}
 	}

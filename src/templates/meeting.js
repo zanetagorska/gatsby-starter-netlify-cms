@@ -4,7 +4,8 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 
-export const MeetingTemplate = ({ content, contentComponent, title }) => {
+export const MeetingTemplate = ({ content, contentComponent, title, meeting_image }) => {
+	console.log({ meeting_image });
 	const PageContent = contentComponent || Content;
 
 	return (
@@ -27,7 +28,12 @@ const MeetingPage = ({ data }) => {
 	const { markdownRemark: meeting } = data;
 	return (
 		<Layout>
-			<MeetingTemplate content={meeting.html} contentComponent={HTMLContent} title={meeting.frontmatter.title} />
+			<MeetingTemplate
+				content={meeting.html}
+				contentComponent={HTMLContent}
+				title={meeting.frontmatter.title}
+				meeting_image={meeting.frontmatter.meeting_image}
+			/>
 		</Layout>
 	);
 };
@@ -44,6 +50,7 @@ export const MeetingPageQuery = graphql`
 			html
 			frontmatter {
 				title
+				meeting_image
 			}
 		}
 	}

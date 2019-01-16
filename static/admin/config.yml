@@ -26,7 +26,7 @@ collections:
     fields:
       - { label: "Template Key", name: "templateKey", widget: "hidden", default: "meeting"}
       - {label: "Title", name: "title", default: "title"}
-      - {label: "Meeting image", name: "meeting_image", widget: "string", default: "/img/chemex.jpg"}
+      - {label: "Meeting image", name: "meeting_image", widget: "image", default: "/img/chemex.jpg"}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "pages"
     label: "Pages"

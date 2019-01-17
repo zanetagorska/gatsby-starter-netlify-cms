@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
 export const MeetingTemplate = ({ content, contentComponent, title, meeting_image }) => {
 	console.log({ meeting_image });
@@ -15,6 +16,7 @@ export const MeetingTemplate = ({ content, contentComponent, title, meeting_imag
 					<div className="column is-10 is-offset-1">
 						<div className="section">
 							<h1 className="title is-size-2 has-text-weight-bold is-bold-light">{title}</h1>
+							<PreviewCompatibleImage imageInfo={meeting_image} />
 							<PageContent content={content} />
 						</div>
 					</div>
@@ -50,7 +52,13 @@ export const MeetingPageQuery = graphql`
 			html
 			frontmatter {
 				title
-				meeting_image
+				meeting_image {
+					childImageSharp {
+						fluid(maxWidth: 240, quality: 64) {
+							...GatsbyImageSharpFluid
+						}
+					}
+				}
 			}
 		}
 	}

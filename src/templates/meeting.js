@@ -6,7 +6,6 @@ import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
 export const MeetingTemplate = ({ content, contentComponent, title, meeting_image }) => {
-	console.log({ meeting_image });
 	const PageContent = contentComponent || Content;
 
 	return (
@@ -16,7 +15,7 @@ export const MeetingTemplate = ({ content, contentComponent, title, meeting_imag
 					<div className="column is-10 is-offset-1">
 						<div className="section">
 							<h1 className="title is-size-2 has-text-weight-bold is-bold-light">{title}</h1>
-							<PreviewCompatibleImage imageInfo={meeting_image} />
+							<PreviewCompatibleImage imageInfo={{ image: meeting_image }} />
 							<PageContent content={content} />
 						</div>
 					</div>
